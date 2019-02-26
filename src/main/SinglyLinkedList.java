@@ -20,5 +20,9 @@ public class SinglyLinkedList {
         public void setNext(Node next) {
             this.next = next;
         }
+
+        public Node(int data) {
+            this.data = data;
+        }
     }
 }
