@@ -52,6 +52,8 @@ public class SinglyLinkedList {
     }
 
     private void insertHead(int data){
+        Node newNode=new Node(data);
+
 
     }
 
