@@ -37,6 +37,10 @@ public class SinglyLinkedList {
     public static void main(String[] args) {
         SinglyLinkedList linklist = new SinglyLinkedList();
         System.out.println(linklist);
+
+        linklist.insert(42);
+        linklist.insert(66);
+        System.out.println(linklist);
     }
         @Override
                 public String toString(){
@@ -45,7 +49,11 @@ public class SinglyLinkedList {
             Node temp=this.head;
             while(temp!=null){
                 response.append(temp.getData());
-            temp=temp.next;
+
+            if(temp.next!=null){
+                response.append("==> ");
+            }
+                temp=temp.next;
             }
             response.append("]");
             return response.toString();
@@ -53,9 +61,31 @@ public class SinglyLinkedList {
 
     private void insertHead(int data){
         Node newNode=new Node(data,this.head);
+        // this.head=new Node(data,this.head);
+ this .head=newNode;
+ size++;
+    }
 
+    private void insertAfter(int data, Node node){
+        Node newNode =new Node(data, node.next);
+        node.next=new Node(data ,node.next);
+        size++;
 
+    }
+    public void insert(int data){
+        if(head==null){
+            insertHead(data);
+        }
+        else {
+            Node temp = this.head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            insertAfter(data, temp);
+        }
+    }
 
+    public void delete(){
 
     }
 
